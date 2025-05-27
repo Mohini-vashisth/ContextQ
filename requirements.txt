@@ -1,4 +1,5 @@
 feedparser==6.0.11
+langdetect==1.0.9
 numpy==2.0.2
 pandas==2.2.3
 python-dateutil==2.9.0.post0

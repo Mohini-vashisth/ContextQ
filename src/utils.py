@@ -1,6 +1,15 @@
 import pandas as pd
-import os
 import json
+import os
+from langdetect import detect, DetectorFactory
+
+DetectorFactory.seed = 0  # Ensures consistent detection
+
+def detect_language(text):
+    try:
+        return detect(text)
+    except:
+        return "unknown"
 
 def save_to_csv(data, country):
     if not data:

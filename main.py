@@ -1,6 +1,6 @@
 import json
 from src.rss_parser import parse_feed
-from src.utils import save_to_csv
+from src.utils import save_to_csv, detect_language
 
 def load_feeds(path="feeds/rss_feeds.json"):
     with open(path, "r", encoding="utf-8") as f:
@@ -18,6 +18,7 @@ def run():
                 articles = parse_feed(url)
                 for a in articles:
                     a["country"] = country
+                    a["language"] = detect_language(a["title"] + " " + a.get("summary", ""))
                 all_articles.extend(articles)
             except Exception as e:
                 print(f"  [!] Error parsing {url}: {e}")
