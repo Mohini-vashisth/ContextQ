@@ -1,0 +1,22 @@
+{
+  "UK": ["http://feeds.bbci.co.uk/news/rss.xml"],
+  "US": ["http://rss.cnn.com/rss/edition.rss"],
+  "Japan": ["https://www3.nhk.or.jp/rss/news/cat0.xml"],
+  "India": ["https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms"],
+  "Germany": ["https://www.dw.com/en/top-stories/s-9097/rss"],
+  "France": ["https://www.france24.com/en/rss"],
+  "Canada": ["https://www.cbc.ca/cmlink/rss-world"],
+  "Brazil": ["https://g1.globo.com/rss/g1/"],
+  "Australia": ["https://www.abc.net.au/news/feed/51120/rss.xml"],
+  "China": ["http://english.news.cn/rss/worldrss.xml"],
+  "Russia": ["https://tass.com/rss/v2.xml"],
+  "South Korea": ["https://www.koreatimes.co.kr/www/rss/rss.xml"],
+  "Singapore": ["https://www.straitstimes.com/news/singapore/rss.xml"],
+  "Malaysia": ["https://www.thestar.com.my/rss/editorspick"],
+  "Indonesia": ["https://www.thejakartapost.com/rss"],
+  "Italy": ["https://www.ansa.it/sito/ansait_rss.xml"],
+  "Spain": ["https://english.elpais.com/rss"],
+  "South Africa": ["https://www.news24.com/rss"],
+  "Turkey": ["https://www.hurriyetdailynews.com/rss"],
+  "Mexico": ["https://mexiconewsdaily.com/rss"]
+}
