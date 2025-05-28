@@ -1,59 +1,137 @@
-# 📰 RSS News Scraper
+# 📰 Web Scraping News from Different Countries using RSS Feeds
 
-A Python-based news aggregator that extracts articles from RSS feeds of 20+ countries and stores them in structured CSV/JSON formats.
+## 📌 Title: Web Scraping and Data Extraction
 
----
-
-## 🌍 Supported Countries
-- UK, US, Japan, India, Germany, France, Canada, Brazil, Australia, China,
-  Russia, South Korea, Singapore, Malaysia, Indonesia, Italy, Spain, South Africa, Turkey, Mexico
-
----
-
-## 🚀 How to Run
-
-### 1. Clone and Setup
-
-```bash
-git clone https://github.com/your-username/rss-news-scraper.git
-cd rss-news-scraper
-python3 -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-pip install -r requirements.txt
-```
-
-### 2. Run the Parser
-
-```bash
-python main.py
-```
-
-### 3. Output
-
-- Saved to `data/COUNTRY_news.csv`
-- One file per country
-
----
-
-## 📦 Sample Output (Example)
-
-| Title                           | Published          | Source | Country | Link                  |
-|--------------------------------|--------------------|--------|---------|-----------------------|
-| UK Inflation Falls              | 2025-05-27 10:00   | BBC    | UK      | https://bbc...        |
-| Biden Speaks on AI             | 2025-05-27 09:45   | CNN    | US      | https://cnn...        |
-| NHK Report on Earthquake       | 2025-05-27 08:30   | NHK    | Japan   | https://nhk...        |
+## 🚀 Objective
+This project demonstrates the ability to:
+- Extract structured news data from RSS feeds across different countries.
+- Parse and process RSS feeds using Python.
+- Store the data in both CSV and SQLite formats.
+- Handle encoding, deduplication, and missing field issues.
+- Provide an API to query stored news articles.
 
 ---
 
 ## 📁 Project Structure
-
 ```
 rss-news-scraper/
-│
-├── data/             # CSV/JSON outputs
-├── feeds/            # RSS feed lists
-├── src/              # Parsing and utility logic
-├── main.py           # Entry point
-├── README.md
+├── ContexQ/                  # Django project settings
+│   ├── settings.py
+│   └── ...
+├── articles/                 # Django app for news
+│   ├── models.py
+│   ├── views.py
+│   └── ...
+├── src/                      # Parsing logic
+├── feeds/rss_feeds.json      # RSS feed URLs
+├── data/                     # CSV output
+├── run_scraper.sh            # Cron script
+├── main.py                   # Scraper entry point
+├── manage.py
 ├── requirements.txt
+└── README.md
 ```
+
+---
+
+## 📥 Data Collection
+- 20+ RSS feeds from countries including UK, US, Japan, India, Germany, etc.
+- Fields extracted:
+  - Title
+  - Published Date
+  - Source
+  - Country
+  - Summary
+  - URL
+  - Language (detected)
+
+---
+
+## 💾 Data Storage
+- Articles saved to:
+  - CSV (`/data/*.csv`)
+  - SQLite via Django ORM (`Article` model)
+
+---
+
+## 🧠 Code Features
+- Modularized with `src/`
+- Uses `feedparser`, `langdetect`, `pandas`
+- Error handling and deduplication
+- Fully commented and class/function-based design
+
+---
+
+## ⚙️ Django API Endpoint
+### Base URL:
+```
+http://127.0.0.1:8000/api/news/
+```
+
+### Filters:
+- `?country=India`
+- `?lang=en`
+- `?country=France&lang=fr`
+
+### Example:
+```
+http://127.0.0.1:8000/api/news/?country=India&lang=en
+```
+
+---
+
+## 🕒 Automation
+Scheduled using cron:
+```bash
+0 7 * * * /absolute/path/run_scraper.sh >> /absolute/path/log.txt 2>&1
+```
+
+---
+
+## 🔧 Usage
+
+### Install:
+```bash
+pip install -r requirements.txt
+```
+
+### Scrape & Store:
+```bash
+python main.py
+```
+
+### Run Django API:
+```bash
+python manage.py runserver
+```
+
+
+---
+
+## 📊 Summary Sheet 
+Download summary: [`news_scraper_summary.csv`](./news_scraper_summary.csv)
+
+
+---
+
+## ✅ Completed Features
+- ✅ 20+ countries
+- ✅ RSS parsing + error handling
+- ✅ CSV & SQLite storage
+- ✅ Django API with filters
+- ✅ Language detection
+- ✅ Cron automation
+
+---
+
+## 📎 Submission Bundle
+- `main.py`
+- `feeds/rss_feeds.json`
+- `data/*.csv`
+- `run_scraper.sh`
+- Django project
+- `README.md`
+
+---
+
+
